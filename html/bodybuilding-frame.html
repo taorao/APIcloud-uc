@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/api.css">
+  <link rel="stylesheet" href="../css/iconfont.css">
+</head>
+<body>
+  <script type="text/x-dot-template" id="entertainmentTml">
+      {{ for(var i=0,len=it.length;i<len;i++){ }}
+        <div class="bodybuilding-frame">
+
+        </div>
+    {{ } }}
+  </script>
+  <script src="../script/api.js" charset="utf-8"></script>
+  <script src="../script/doT.min.js" charset="utf-8"></script>
+  <script>
+  apiready = function () {
+    var tableNum = api.pageParam.tableNum;
+    alert(tableNum)
+  }
+
+
+
+  </script>
+</body>
+</html>

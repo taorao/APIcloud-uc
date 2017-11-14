@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+  <link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+  <style>
+  header {
+      background: #fcfcfc;
+      height: 50px;
+      border-bottom: 1px solid #DDDFE3;
+  }
+  header i{
+    line-height: 50px;
+  }
+
+  .left {
+      float: left;
+      width: 50px;
+      height: 50px;
+      background: url(../image/header/back.png) no-repeat center center;
+      background-size: 15px auto;
+      text-align: center;
+  }
+
+  .right {
+      float: right;
+      width: 50px;
+      line-height: 50px;
+      color: #eee;
+      font-size: 20px;
+      text-align: center;
+  }
+  .right i{
+
+
+      color: #000;
+      font-size: 22px;
+      text-align: center;
+  }
+
+  .right-hov {
+      color: #DD8400;
+  }
+
+  .middle {
+      position: absolute;
+      left: 50px;
+      right: 60px;
+      margin-top: 8px;
+      height: 34px;
+      border-radius: 34px;
+      background-color: #E8E8E8;
+  }
+
+  .middle>img:first-child {
+      float: left;
+      padding-top: 7px;
+      height: 20px;
+      vertical-align: top;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+  .middle>input {
+      position: absolute;
+      left: 40px;
+      right: 50px;
+      margin-top: 8px;
+      height: 18px;
+      line-height: 18px;
+      color: #999;
+      font-size: 14px;
+      outline: none;
+  }
+
+  .middle>input::-webkit-input-placeholder {
+      color: #666;
+      line-height: 18px;
+      font-size: 14px;
+  }
+
+  .middle>img:last-child {
+      float: right;
+      padding-top: 4px;
+      height: 27px;
+      vertical-align: top;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  .middle i{
+    float: right;
+line-height: 35px;
+font-size: 20px;
+margin-right: 5px;
+  }
+  html,
+body {
+    height: 100%;
+    background: #f0f0f0;
+}
+
+.darktitle {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.col {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    position: relative;
+}
+
+.flipcard {
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    margin: 5px 5px 3px 5px;
+    background-color: #fff;
+}
+
+.inwrap {
+    margin: 0 10px;
+}
+
+.item-hov {
+    background-color: #FAFAFA;
+}
+  </style>
+</head>
+<body>
+  <header id="header">
+      <div class="left event-back" onclick="fanhui()">
+        <i class="aui-iconfont aui-icon-left"></i>
+      </div>
+      <div class="right" tapmode="highlight">
+        <i class="icon iconfont icon-search1" onclick="fnOpenSpeechRecognizer()" tapmode></i>
+      </div>
+      <div class="middle">
+          <input id="searchText" onchange="baidusearch()" type="text" placeholder="请输入搜索内容">
+          <i class="icon iconfont icon-yuyin" onclick="fnOpenSpeechRecognizer()" tapmode></i>
+      </div>
+  </header>
+  <div class="darktitle">热门搜索</div>
+        <div class="row inwrap">
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"影城"}'>影城</div>
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"黑马"}'>黑马</div>
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"KTV"}'>KTV</div>
+        </div>
+        <div class="row inwrap">
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"上地"}'>上地</div>
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"中关村"}'>中关村</div>
+            <div class="col flipcard open-win" win="search_result" param='{"keyword":"俱乐部"}'>俱乐部</div>
+  </div>
+  <script src="../script/api.js"></script>
+  <script type="text/javascript">
+    apiready = function () {
+
+    }
+    function fnOpenSpeechRecognizer() {
+      api.toast({
+          msg: '语音识别开始',
+          duration: 1000,
+          location: 'middle'
+      });
+      var speechRecognizer = api.require("speechRecognizer");
+      speechRecognizer.record({},function(ret,err){
+          if(ret.wordStr){
+
+              var searchText = $api.byId('searchText').value;
+              // searchText.html=ret.wordStr;
+
+              alert(ret.wordStr)
+          }else{
+              alert(JSON.stringify(err));
+          }
+      });
+      speechRecognizer.addRecordHUD()
+    }
+    function fanhui(){
+      api.openWin({
+          name: 'index',
+          url: '../index.html',
+          type: 'cube'
+      });
+    }
+    function baidusearch() {
+    var searchText = $api.byId('searchText').value;
+      api.openWin({
+          name: 'baidusearch',
+          url: './openbaidu.html',
+          pageParam: {
+              tableNum1: searchText
+          }
+      });
+
+    }
+
+  </script>
+</body>
+</html>

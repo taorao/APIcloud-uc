@@ -6,94 +6,289 @@
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>Hello APP</title>
     <link rel="stylesheet" type="text/css" href="./css/api.css" />
-    <style type="text/css">
-    html,body{
-        height: 100%;
-    }
-    #wrap{
-        height: 100%;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-flex-flow: column;
-    }
-    #header{
-        text-align: center; 
-		background-color: #81a9c3; 
-		color: #fff;
-        width: 100%;
-    }
-    #header h1{
-        font-size: 20px; 
-		height: 44px; 
-		line-height: 44px; 
-		margin: 0em; 
-		color: #fff;
-    }
-    #main{
-        -webkit-box-flex: 1; 
-        -webkit-flex: 1;
-    }
-    #footer{
-        height: 30px; 
-		line-height: 30px;
-        background-color: #81a9c3; 
-        width: 100%;
-        text-align: center;
-    }
-    #footer h5{
-        color: white;
-    }
-    .con{
-		font-size: 28px; 
-		text-align: center;
-	}
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="./css/demo.css" />
 </head>
 <body>
-    <div id="wrap">
-        <div id="header">
-            <h1>APICloud</h1>
+  <div id="wrap">
+        <div class="one">
+            <div class="one_1">
+              <h2 style="color:#fff;font-size: 40px;    padding-top: 10px;">&nbsp;16°</h2>
+            </div>
+            <div class="one_2">
+              <div class="one_2s">
+                  <span style="color:#fff;">249</span><span style="color:#fff;">重度污染</span>
+              </div>
+              <br>
+              <div class="one_2e" style="clear:all;margin-top: -55px;">
+                  <span style="color:#fff;">万柏林区&nbsp;多云</span>
+              </div>
+
+            </div>
+            <div class="one_3">
+              <img src="./image/tianqi.png">
+            </div>
         </div>
-        <div id="main">
-                
+        <div class="two">
+          <div class="two_1">
+              <div class="two_2" onclick="search()">
+                  <div class="two_3">
+                      <i style="font-size:18px;margin-left:10px;" class="icon iconfont icon-search1"></i>
+                      <span>搜索或输入网址</span>
+                  </div>
+                  <div class="two_4">
+                      <i class="icon iconfont icon-yuyin"></i>
+                      <i class="icon iconfont icon-richscan_icon"></i>
+                  </div>
+              </div>
+          </div>
         </div>
-        <div id="footer">
-            <h5>Copyright &copy;<span id="year"></span> </h5>
+        <div class="three">
+          <div class="three_1">
+              <ul>
+                <li>
+                  <i class="icon iconfont icon-wangzhi"></i>
+                </li>
+                <li>
+                  <i class="icon iconfont icon-tubiao1shuxiaoshuo"></i>
+                </li>
+                <li>
+                  <i class="icon iconfont icon-shipin"></i>
+                </li>
+                <li>
+                  <i class="icon iconfont icon-xiaolian-copy"></i>
+                </li>
+                <li>
+                  <i class="icon iconfont icon-xing"></i>
+                </li>
+              </ul>
+              <ul>
+                <li>网址</li>
+                <li>小说</li>
+                <li>视频</li>
+                <li>奇趣</li>
+                <li>追星</li>
+              </ul>
+          </div>
         </div>
     </div>
-</body>
+    <div class="main">
+      <div class="content">
+          <ul class="content_1">
+            <ul>
+              <li>
+                  <img src="./image/0.png"><p>新浪</p>
+              </li>
+              <li><img src="./image/2.png"><p>百度</p></li>
+              <li><img src="./image/3.png"><p>瓜子</p></li>
+              <li><img src="./image/1111.png"><p>淘宝</p></li>
+              <li><img src="./image/11111.png"><p>微博</p></li>
+              <li><img src="./image/6.png"><p>同城</p></li>
+            </ul>
+          </ul>
+      </div>
+      <div class="content2">
+          <ul class="content2_1">
+            <li><img src="./image/7.png"><p>优酷</p></li>
+            <li><img src="./image/8.png"><p>携程</p></li>
+            <li><img src="./image/9.png"><p>天猫</p></li>
+            <li><img src="./image/11.png"><p>苏宁</p></li>
+            <li><img src="./image/12.png"><p>高德</p></li>
+            <li style='margin-top:18px;'><img style='height:6px;' src="./image/14.png"><p>酷站</p></li>
+          </ul>
+      </div>
+      <div class="uc-toutiao" style="text-align:center;background:#fff;">
+        <span>--uc&nbsp;头条--</span>
+      </div>
+
+    </div>
+    <div id="layout">
+
+    </div>
+    <div class="aui-bar aui-bar-tab">
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="aui-iconfont aui-icon-left"></i>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="aui-iconfont aui-icon-right"></i>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="aui-iconfont aui-icon-menu"></i>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="aui-iconfont aui-icon-edit"></i>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="aui-iconfont aui-icon-my"></i>
+          </div>
+      </div>
+  </div>
+  <script type="text/x-dot-template" id="indexTml">
+  {{ for(var i=0,len=it.length;i<len;i++){ }}
+    <div class="layout_all">
+        <div class="layout_1">
+            <img src="{{=it[i].thumb}}">
+        </div>
+        <div class="layout_2">
+            <div class="layout_2s">
+                <h2>{{=it[i].title}}</h2>
+            </div>
+            <div class="layout_2p">
+
+            </div>
+        </div>
+    </div>
+  {{ } }}
+  </script>
+       <div class="addmenu">
+            <ul>
+              <li>
+                  <img src="./image/shoucang.png">
+                  <p>收藏/历史</p>
+              </li>
+              <li>
+                  <img src="./image/xaizai.png">
+                  <p>下载/文件</p>
+              </li>
+              <li>
+                  <img src="./image/xiaoshuo.png">
+                  <p>WiFi助手</p>
+              </li>
+              <li>
+                  <img src="./image/video.png">
+                  <p>我的视频</p>
+              </li>
+              <li>
+                  <img src="./image/wifi.png">
+                  <p>WiFi助手</p>
+              </li>
+            </ul>
+            <ul class="navlist">
+              <li>
+                  <img src="./image/wangzhi.png">
+                  <p>收藏网址</p>
+              </li>
+              <li>
+
+                  <img src="./image/yejian.png">
+                  <p>夜间模式</p>
+
+              </li>
+              <li>
+
+                  <img src="./image/shuaxin.png">
+                  <p>刷新</p>
+
+              </li>
+              <li>
+                  <img src="./image/gongjuxiang.png">
+                  <p>工具箱</p>
+              </li>
+              <li>
+                  <img src="./image/tuichu.png">
+                  <p>退出</p>
+              </li>
+            </ul>
+            <div class="nav-1">
+              <ul id="api-cloud">
+                <li>
+                  <i style="font-size: 18px;font-weight: bold;" class="aui-iconfont aui-icon-gear"></i>
+                </li>
+                <li class="xiangxia">
+                    <i onclick="menus()" class="aui-iconfont aui-icon-down"></i>
+                </li>
+                <li>
+                  <i style="font-size: 18px;font-weight: bold;"  class="aui-iconfont aui-icon-share"></i>
+                </li>
+              </ul>
+            </div>
+      </div>
+      <div class="aui-bar aui-bar-tab">
+            <div class="aui-bar-tab-item" tapmode>
+                <i class="aui-iconfont aui-icon-left"></i>
+            </div>
+            <div class="aui-bar-tab-item" tapmode>
+                <i class="aui-iconfont aui-icon-right"></i>
+            </div>
+            <div class="aui-bar-tab-item" tapmode  onclick="menus()">
+                <i class="aui-iconfont aui-icon-menu"></i>
+            </div>
+            <div class="aui-bar-tab-item" tapmode>
+                <i class="aui-iconfont aui-icon-edit"></i>
+            </div>
+            <div class="aui-bar-tab-item" tapmode>
+                <i style="font-size:1rem;" class="icon iconfont icon-zhuye"></i>
+            </div>
+        </div>
+    </div>
+
 <script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/doT.min.js"></script>
+<script type="text/javascript" src="./script/exit.js"></script>
 <script type="text/javascript">
     apiready = function(){
-		//输出Log，Log将显示在APICloud Studio控制台
-		console.log("Hello APICloud");
-
-        var header = $api.byId('header');
-        //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
-        $api.fixStatusBar(header);
-		//动态计算header的高度，因iOS7+和Android4.4+上支持沉浸式效果，
-		//因此header的实际高度可能为css样式中声明的44px加上设备状态栏高度
-		//其中，IOS状态栏高度为20px，Android为25px
-        var headerH = $api.offset(header).h;
-		//footer高度为css样式中声明的30px
-		var footerH = 30;
-		//frame的高度为当前window高度减去header和footer的高度
-		var frameH = api.winHeight - headerH - footerH;
-        api.openFrame({
-            name: 'main',
-            url: 'html/main.html',
-            bounces: true,
-            rect: {
-                x: 0,
-                y: headerH,
-                w: 'auto',
-                h: frameH
+          // api.openWin({
+          //     name: 'fram',
+          //     url: 'html/welcome_frame_1.html'
+          //   });
+         api.ajax({
+            url: 'http://owihzkfdx.bkt.clouddn.com/get.json',
+            method: 'get'
+        }, function(ret, err) {
+            if (ret) {
+                var tml = doT.template($api.byId('indexTml').innerHTML);
+                $api.byId('layout').innerHTML= tml(ret.data);
+                menus()
+            } else {
+                api.alert({ msg: JSON.stringify(err) });
             }
         });
 
-        var year = $api.byId('year');
-        year.innerHTML = new Date().getFullYear();
-
-    };
+          window.onscroll=function(){
+            var scrTop=document.documentElement.scrollTop||document.body.scrollTop
+              if(scrTop>50){
+                 api.openWin({
+                    name: 'main',
+                    url: 'html/index.html'
+                  });
+              }
+          }
+          var isAndroid = (/android/gi).test(navigator.appVersion);
+          if (isAndroid) {
+          //绑定安卓的后退按钮事件 两秒内后退按钮点击两次 关闭应用
+          var backSecond = 0;
+          api.addEventListener({
+              name: 'keyback'
+          }, function(ret, err) {
+              var curSecond = new Date().getSeconds();
+              if (Math.abs(curSecond - backSecond) > 2) {
+                  backSecond = curSecond;
+                  api.toast({
+                      msg: '连续按两次关闭系统',
+                      duration: 2000,
+                      location: 'bottom'
+                  });
+              } else {
+              	api.closeWidget({
+              		id: 'A6054151506904', //这里改成自己的应用ID
+              		retData: {name:'closeWidget'},
+              		silent:true
+              		});
+              }
+          });
+          }
+      }
+        function menus(){
+              var addmenu=document.getElementsByClassName("addmenu")[0];
+              addmenu.classList.toggle("addmenunone")
+        }
+        function search() {
+          api.openWin({
+              name: 'search',
+              url: 'html/sousuo.html'
+          });
+        }
 </script>
+</body>
 </html>

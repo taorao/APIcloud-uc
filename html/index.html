@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../css/scoll.css" />
+    <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+</head>
+<body onload="loaded()">
+      <header class="header aui-bar aui-bar-nav">
+          <div class="aui-pull-left aui-btn aui-btn-outlined">
+              <span class="aui-iconfont aui-icon-menu"></span>
+              <span style="margin-left:10px;font-size:18px;">UC头条</span>
+          </div>
+          <div class="aui-title">UC</div>
+          <div class="aui-pull-right aui-btn aui-btn-outlined">
+              <span class="aui-iconfont aui-icon-search"></span>
+          </div>
+      </header>
+      <div id="wrapper">
+        <div id="scroller">
+          <ul>
+            <li class="active"><span>推荐</span></li>
+            <li><span>视频</span></li>
+            <li><span>数码</span></li>
+            <li><span>汽车</span></li>
+            <li><span>时尚</span></li>
+            <li><span>体育</span></li>
+            <li><span>电影</span></li>
+            <li><span>健康</span></li>
+            <li><span>教育</span></li>
+            <li><span>社会</span></li>
+            <li><span>股票</span></li>
+            <li><span>娱乐</span></li>
+            <li><span>热点</span></li>
+            <li><span>家居</span></li>
+            <li><span>财经</span></li>
+            <li><span>科技</span></li>
+            <li><span>搞笑</span></li>
+            <li><span>军事</span></li>
+            <li><span>历史</span></li>
+            <li><span>互联网</span></li>
+            <li><span>动漫</span></li>
+            <li><span>音乐</span></li>
+            <li><span>情感</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="footer aui-bar aui-bar-tab">
+          <div class="aui-bar-tab-item aui-active" tapmode>
+              <i class="icon iconfont icon-toutiao"></i>
+              <span class="aui-bar-tab-label">头条</span>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="icon iconfont icon-shipin"></i>
+              <span class="aui-bar-tab-label">视频</span>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="icon iconfont icon-dingyue-copy"></i>
+              <span class="aui-bar-tab-label">订阅</span>
+              <span style="color: #ccc;" class="aui-bar-tab-label">|</span>
+          </div>
+          <div class="aui-bar-tab-item" tapmode>
+              <i class="icon iconfont icon-daohang"></i>
+              <span class="aui-bar-tab-label"></span>
+          </div>
+          <div class="aui-bar-tab-item" tapmode onclick="fanhui()">
+              <i class="icon iconfont icon-zhuye"></i>
+              <span class="aui-bar-tab-label"></span>
+          </div>
+      </footer>
+
+
+    <script src="../script/api.js"></script>
+    <script src="../script/aui.js"></script>
+    <script src="../script/iscroll.js"></script>
+    <script type="text/javascript">
+    function loaded () {
+    	myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+    }
+        apiready = function() {
+          var header = $api.dom('.header');
+          var footer = $api.dom('.footer');
+          var wrapper = $api.byId('wrapper');
+          var scroller = $api.byId('scroller');
+          var wrapperH = $api.offset(wrapper).h;
+          var headerH = $api.offset(header).h;
+          var footerH = $api.offset(footer).h;
+          var scrollerli = $api.domAll('#scroller li')[0];
+          var mainH = api.winHeight - headerH - footerH - wrapperH;
+              api.openFrameGroup ({
+                  name: 'group1',
+                  background: '#fff',
+                  scrollEnabled: false,
+                  rect: {
+                    x: 0,
+                    y: headerH + wrapperH,
+                    w: 'auto',
+                    h: mainH
+                  },
+                  scrollEnabled:true,
+                  frames: [{
+                      name: 'recommend',
+                      url: './recommend.html',
+                      bgColor: '#fff'
+                  },
+                  {
+                      name: 'video',
+                      url: './video.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'healthy',
+                      url: './healthy.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'car',
+                      url: './car.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'fashion',
+                      url: './fashion.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'sport',
+                      url: './sport.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'movies',
+                      url: './movies.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'bodybuilding',
+                      url: './bodybuilding.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'parenting',
+                      url: './parenting.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'sociology',
+                      url: './sociology.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'shares',
+                      url: './shares.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'entertainment',
+                      url: './entertainment.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'hotspot',
+                      url: './hotspot.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'jiaju',
+                      url: './jiaju.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'technology',
+                      url: './technology.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'Finance',
+                      url: './Finance.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'funny',
+                      url: './funny.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'military',
+                      url: './military.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'history',
+                      url: './history.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'increase_knowledge',
+                      url: './increase_knowledge.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'festival',
+                      url: './festival.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'my',
+                      url: './my.html',
+                      bgColor: '#fff'
+                  },{
+                      name: 'emotion',
+                      url: './emotion.html',
+                      bgColor: '#fff'
+                  }
+                  ]
+              }, function(ret, err){
+                  if( ret ){
+                      var tabs = $api.domAll('#scroller li');
+                       for(var i=0,len=tabs.length;i<len;i++){
+                           $api.removeCls(tabs[i], 'active');
+                       }
+                       $api.addCls(tabs[ret.index], 'active');
+                          var a=0,b;
+                             if(ret.index>=3){
+                                   a=0;b='';
+
+                                   a-=80*ret.index;
+                                   b=a+'px';
+                                  //  alert(b)
+scroller.style.cssText= "transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);transition-duration: 0ms;transform: translate("+b+", 0px) translateZ(0px);"
+
+                             }
+                             if(ret.index>=18){
+                               scroller.style.cssText= "transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);transition-duration: 0ms;transform: translate(-1465px, 0px) translateZ(0px);"
+                             }
+
+                  }else{
+                      alert( JSON.stringify( err ) );
+                  }
+              });
+        }
+        changeFrameGroupIndex()
+        function changeFrameGroupIndex() {
+                var tabs = $api.domAll('#scroller li');
+            for(var j=0,len=tabs.length;j<len;j++){
+                tabs[j].index=j;
+              tabs[j].onclick=function(){
+                for(var i=0,len=tabs.length;i<len;i++){
+                    $api.removeCls(tabs[i], 'active');
+                }
+                $api.addCls(tabs[this.index], 'active');
+                api.setFrameGroupIndex({
+                  name: 'group1',
+                  index: this.index
+                });
+
+              }
+            }
+
+        }
+        function menus(){
+              var addmenu=document.getElementsByClassName("addmenu")[0];
+              addmenu.classList.toggle("addmenunone")
+        }
+        function fanhui() {
+          api.closeToWin({
+              name: 'root'
+          });
+        }
+</script>
+</body>
+
+</html>

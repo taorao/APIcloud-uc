@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/api.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+  <link rel="stylesheet" href="../css/demo.css">
+</head>
+
+<body>
+    <script type="text/x-dot-template" id="entertainmentTml">
+        {{ for(var i=0,len=it.length;i<len;i++){ }}
+        <a style="color:#1a1a1a;" href="{{=it[i].url}}">
+            <div class="layout_all">
+                <div class="layout_1">
+                    <img src="{{=it[i].lbimg[0].src}}">
+                </div>
+                <div class="layout_2">
+                    <div class="layout_2s">
+                        <h2>{{=it[i].topic}}</h2>
+                    </div>
+                    <div class="layout_2p">
+                        <i class="icon iconfont icon-dingyue-copy">观看记录</i><span>{{=it[i].urlpv}}</span>
+
+                        <span class="right">Uc娱乐</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+      {{ } }}
+    </script>
+    <div id="layout">
+
+    </div>
+    <script src="../script/api.js" charset="utf-8"></script>
+    <script src="../script/doT.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    apiready = function(){
+      api.ajax({
+            url: 'http://owihzkfdx.bkt.clouddn.com/hotspot.json',
+            method: 'get'
+        }, function(ret, err) {
+            if (ret) {
+                var tml = doT.template($api.byId('entertainmentTml').innerHTML);
+              	$api.byId('layout').innerHTML= tml(ret.data);
+            } else {
+                api.alert({ msg: JSON.stringify(err) });
+            }
+        });
+    }
+
+    </script>
+</body>
+
+</html>
